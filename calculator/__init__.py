@@ -1,6 +1,10 @@
 import math
+import sys
+import os
 
-from .basic_functions import add_numbers, subtract_numbers, multiply_numbers, divide_numbers
 from .welcome import welcome_message
 from .input import decide_calculator_function
 from .constants import generate_constants
+
+sys.path.insert(0, ".\\calculator\\calculator_logic")
+from basic import Basic_Calculator

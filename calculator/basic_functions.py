@@ -1,6 +1,0 @@
-from calculator import math
-
-
-
-
-

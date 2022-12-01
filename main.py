@@ -20,6 +20,8 @@ class App():
                 self.calculus()
             case "4":
                 self.rearranging()
+            case "5":
+                self.surd_simplification()
     
     def basic(self) -> None:
         """ Controls the basic calculator """
@@ -36,6 +38,11 @@ class App():
         
     def rearranging(self) -> None:
         """ Controls the rearranging calculator """
+        
+        
+    def surd_simplification(self) -> None:
+        """ Controls the surd simplification calculator """
+        calculator.Surd_Simplification_Calculator()
         
 
     

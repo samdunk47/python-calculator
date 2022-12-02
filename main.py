@@ -44,6 +44,11 @@ class App():
     def surd_simplification(self) -> None:
         """ Controls the surd simplification calculator """
         calculator.Surd_Simplification_Calculator()
- 
+    
+def restart():
+    """ Restarts the program """
+    app = App()
+        
+
 if __name__ == "__main__":
     app = App()

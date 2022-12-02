@@ -1,3 +1,5 @@
+import calculator
+
 class Basic_Calculator():
     def __init__(self) -> None:
         """ Initialises basic calculator class
@@ -12,6 +14,9 @@ class Basic_Calculator():
         user_input = self.take_input()
         term_array = self.create_term_array(user_input)
         result = self.evaluate_term_array(term_array)
+        if result == "invalid":
+            calculator.restart()
+        
         print(result)
         
     def take_input(self) -> str:
@@ -48,48 +53,46 @@ class Basic_Calculator():
         
         try:
             evaluated_answer = eval(term_string)
-        except SyntaxError as error:
-            invalid_character = term_string[error.args[1][2] - 1]
+        except BaseException as error:
             print("Invalid input")
-            print(f"Invalid character: {invalid_character}")
             return "invalid"
             
         return evaluated_answer
         
         
-    def add_numbers(*nums: float) -> float:
-        """ Takes any number of real numbers as the argument
-        Returns: float: sum of all numbers
-        """
-        total = 0
-        for num in nums:
-            total += num
+    # def add_numbers(*nums: float) -> float:
+    #     """ Takes any number of real numbers as the argument
+    #     Returns: float: sum of all numbers
+    #     """
+    #     total = 0
+    #     for num in nums:
+    #         total += num
             
-        return total
+    #     return total
 
-    def subtract_numbers(num1: float, num2: float) -> float:
-        """ Takes any 2 real numbers as the argument 
-        Returns: float: arg1 - arg2
-        """    
-        result = num1 - num2
+    # def subtract_numbers(num1: float, num2: float) -> float:
+    #     """ Takes any 2 real numbers as the argument 
+    #     Returns: float: arg1 - arg2
+    #     """    
+    #     result = num1 - num2
         
-        return result
+    #     return result
 
-    def multiply_numbers(*nums: float) -> float:
-        """ Takes any number of real numbers as the argument
-        Returns: float: the product of all numbers passed in
-        """    
-        total = 0
-        for num in nums:
-            total *= num
+    # def multiply_numbers(*nums: float) -> float:
+    #     """ Takes any number of real numbers as the argument
+    #     Returns: float: the product of all numbers passed in
+    #     """    
+    #     total = 0
+    #     for num in nums:
+    #         total *= num
             
-        return total
+    #     return total
 
-    def divide_numbers(num1: float, num2: float) -> float:
-        """ Takes any 2 real numbers as the argument
-        Returns: float: arg1 divided by arg2
-        Conditions: num2 != 0
-        """    
-        result = num1 / num2
+    # def divide_numbers(num1: float, num2: float) -> float:
+    #     """ Takes any 2 real numbers as the argument
+    #     Returns: float: arg1 divided by arg2
+    #     Conditions: num2 != 0
+    #     """    
+    #     result = num1 / num2
         
-        return result
+    #     return result

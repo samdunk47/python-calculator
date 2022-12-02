@@ -1,4 +1,4 @@
-from calculator import math
+import calculator
         
 class Quadratic_Calculator():
     def __init__(self) -> None:
@@ -15,7 +15,7 @@ class Quadratic_Calculator():
         """
         quadratic_terms = self.take_input()
         if quadratic_terms == "invalid":
-            calculator.main
+            calculator.restart()
         results = self.calculate_quadratic(quadratic_terms)
         self.output_results(results)
         
@@ -49,8 +49,8 @@ class Quadratic_Calculator():
         a = terms[0]
         b = terms[1]
         c = terms[2]
-        result1 = (-b + math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
-        result2 = (-b - math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
+        result1 = (-b + calculator.math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
+        result2 = (-b - calculator.math.sqrt((b ** 2) - (4 * a * c))) / (2 * a)
         results = [result1, result2]
         return results
         

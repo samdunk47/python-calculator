@@ -4,15 +4,15 @@ class Basic_Calculator():
         Returns: None
         """
         self.logic()
-        self.user_input = None
     
     def logic(self) -> None:
         """ Controls the logic of the basic calculator
         Returns: None
         """
-        self.user_input = self.take_input()
-        self.term_array = self.create_term_array()
-        self.result = self.evaluate_term_array()
+        user_input = self.take_input()
+        term_array = self.create_term_array(user_input)
+        result = self.evaluate_term_array(term_array)
+        print(result)
         
     def take_input(self) -> str:
         """ Takes input from the user, removes whitespace
@@ -23,7 +23,7 @@ class Basic_Calculator():
         
         return user_input
         
-    def create_term_array(self) -> list:
+    def create_term_array(self, user_input) -> list:
         """ Creates an array of all terms inputted
         Replaces "^" with "**" as python views "^" as bitwise XOR
         Ensures evaluation views it as exponentiation
@@ -31,7 +31,7 @@ class Basic_Calculator():
         """
         terms = []
         current = None
-        for char in self.user_input:
+        for char in user_input:
             current = char
             if char == "^":
                 current = "**"
@@ -39,12 +39,22 @@ class Basic_Calculator():
             
         return terms
 
-    def evaluate_term_array(self) -> float:
+    def evaluate_term_array(self, term_array) -> float:
         """ Evaluates the term array
         Returns: float: evaluated terms
+        Returns: str: "invalid" if input is invalid
         """
-        term_string = "".join(self.term_array)
-        print(eval(term_string))
+        term_string = "".join(term_array)
+        
+        try:
+            evaluated_answer = eval(term_string)
+        except SyntaxError as error:
+            invalid_character = term_string[error.args[1][2] - 1]
+            print("Invalid input")
+            print(f"Invalid character: {invalid_character}")
+            return "invalid"
+            
+        return evaluated_answer
         
         
     def add_numbers(*nums: float) -> float:

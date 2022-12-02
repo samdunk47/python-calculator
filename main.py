@@ -30,6 +30,7 @@ class App():
     
     def quadratics(self) -> None:
         """ Controls the quadratic calculator """
+        calculator.Quadratic_Calculator()
         
     
     def calculus(self) -> None:
@@ -43,9 +44,6 @@ class App():
     def surd_simplification(self) -> None:
         """ Controls the surd simplification calculator """
         calculator.Surd_Simplification_Calculator()
-        
-
-    
-        
+ 
 if __name__ == "__main__":
     app = App()

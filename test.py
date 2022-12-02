@@ -1,1 +1,1 @@
-print(27 ** (1 / 3))
+x = int(input("Enter input"))

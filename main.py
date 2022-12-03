@@ -10,14 +10,16 @@ class App():
     def begin(self) -> None:
         """ Displays welcome message then decides type of calculator """        
         calculator.welcome_message()
-        self.function_type = calculator.decide_calculator_function()
-        match self.function_type:
+        function_type = calculator.decide_calculator_function()
+        match function_type:
             case "1":
                 self.basic()
             case "2":
                 self.quadratics()
             case "3":
-                self.calculus()
+                calculus_type = calculator.decide_calculus_type()
+                self.calculus(calculus_type)
+                
             case "4":
                 self.rearranging()
             case "5":
@@ -33,8 +35,9 @@ class App():
         calculator.Quadratic_Calculator()
         
     
-    def calculus(self) -> None:
+    def calculus(self, calculus_type) -> None:
         """ Controls the calculus calculator """
+        calculator.Calculus_Calculator(calculus_type)
         
         
     def rearranging(self) -> None:
@@ -47,8 +50,7 @@ class App():
     
 def restart():
     """ Restarts the program """
-    app = App()
-        
+    app = App() 
 
 if __name__ == "__main__":
     app = App()

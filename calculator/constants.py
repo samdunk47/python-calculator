@@ -1,4 +1,4 @@
-def generate_constants() -> None:
+def generate_constants():
     return {
         "pi": {
             "name": "pi",

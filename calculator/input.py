@@ -22,6 +22,7 @@ def decide_calculus_type():
     User decides on the type of calculus to do
     Returns: str: number corresponding to the calculus function
     """    
+    calculus_type = None
     print()
     print("Options:")
     print("1. Differentiation")
